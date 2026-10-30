@@ -1,0 +1,12 @@
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sistema_solicitudes_backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    command: python manage.py runserver 0.0.0.0:8000
