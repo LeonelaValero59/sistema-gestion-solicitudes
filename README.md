@@ -47,6 +47,8 @@ Después de la codificación se realizan pruebas para comprobar que los componen
 
 Entre estas actividades se contemplan las pruebas de integración, las pruebas del sistema y la validación de las necesidades de los usuarios.
 
+La representación gráfica de esta metodología se encuentra en la carpeta `documentacion/`.
+
 ## 6. Estructura del proyecto
 
 El proyecto presenta la siguiente organización general:
@@ -55,10 +57,17 @@ El proyecto presenta la siguiente organización general:
 - `backend/usuarios/`: contiene la gestión de usuarios, roles y autenticación.
 - `backend/solicitudes/`: contiene los modelos y funcionalidades relacionadas con solicitudes y tareas.
 - `frontend/`: contiene la interfaz web desarrollada con Vite, JavaScript, HTML y CSS.
+- `documentacion/`: contiene los recursos documentales del proyecto, incluida la infografía del Modelo V.
 - `Dockerfile`: define la construcción del entorno del backend.
 - `docker-compose.yml`: configura la ejecución de los servicios mediante Docker.
 - `.gitignore`: indica los archivos que no deben incluirse en el repositorio.
 - `README.md`: contiene la documentación general del proyecto.
+
+### Infografía del Modelo V
+
+La infografía elaborada para representar las etapas del Modelo V se encuentra disponible en:
+
+`documentacion/infografia_modelo_v.png`
 
 ## 7. Avances realizados
 
@@ -75,8 +84,8 @@ Hasta el momento se han desarrollado y comprobado las siguientes funcionalidades
 - Integración inicial del frontend con el backend.
 - Registro y consulta de solicitudes desde la interfaz.
 - Comprobación del funcionamiento de una cuenta con rol Usuario.
-
-También se ha creado el repositorio del proyecto en GitHub para almacenar y documentar los avances.
+- Creación de la infografía explicativa del Modelo V.
+- Publicación de los avances y la documentación en GitHub.
 
 ## 8. Funcionalidades pendientes
 
@@ -86,14 +95,13 @@ Se continuará trabajando en:
 - Ampliar la gestión de solicitudes y tareas desde la interfaz.
 - Mejorar el diseño visual y la experiencia de usuario.
 - Completar las pruebas de funcionamiento.
-- Elaborar la infografía explicativa del Modelo V.
 - Ampliar la documentación técnica y las instrucciones de ejecución.
 
 ## 9. Repositorio del proyecto
 
-El código fuente se encuentra disponible en GitHub:
+El código fuente y los avances se encuentran disponibles en GitHub:
 
-https://github.com/LeonelaValero59/sistema-gestión-solicitudes
+https://github.com/LeonelaValero59/sistema-gestion-solicitudes
 
 ## 10. Autoría
 
