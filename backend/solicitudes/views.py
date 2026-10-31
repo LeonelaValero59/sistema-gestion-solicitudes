@@ -1,15 +1,48 @@
+
 from rest_framework import viewsets
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, BasePermission, SAFE_METHODS
 
 from .models import Solicitud, Tarea
 from .serializers import SolicitudSerializer, TareaSerializer
+
+
+# Permitir la gestión solamente al administrador y al gestor
+class EsAdministradorOGestor(BasePermission):
+
+    def has_permission(self, request, view):
+        return request.user.rol in ['administrador', 'gestor']
+
+
+# Permitir crear solicitudes a los usuarios registrados
+class PuedeCrearSolicitud(BasePermission):
+
+    def has_permission(self, request, view):
+        return request.user.rol in [
+            'administrador',
+            'gestor',
+            'usuario'
+        ]
 
 
 class SolicitudViewSet(viewsets.ModelViewSet):
 
     # Consultar y administrar solicitudes
     serializer_class = SolicitudSerializer
-    permission_classes = [IsAuthenticated]
+
+    def get_permissions(self):
+        # Todos los usuarios autenticados pueden consultar
+        if self.action in ['list', 'retrieve']:
+            permisos = [IsAuthenticated]
+
+        # Los usuarios también pueden registrar solicitudes
+        elif self.action == 'create':
+            permisos = [IsAuthenticated, PuedeCrearSolicitud]
+
+        # Solo el administrador y el gestor pueden modificar
+        else:
+            permisos = [IsAuthenticated, EsAdministradorOGestor]
+
+        return [permiso() for permiso in permisos]
 
     def get_queryset(self):
         usuario = self.request.user
@@ -30,7 +63,17 @@ class TareaViewSet(viewsets.ModelViewSet):
 
     # Consultar y administrar tareas
     serializer_class = TareaSerializer
-    permission_classes = [IsAuthenticated]
+
+    def get_permissions(self):
+        # Todos los usuarios autenticados pueden consultar
+        if self.action in ['list', 'retrieve']:
+            permisos = [IsAuthenticated]
+
+        # Solo el administrador y el gestor pueden crear o modificar tareas
+        else:
+            permisos = [IsAuthenticated, EsAdministradorOGestor]
+
+        return [permiso() for permiso in permisos]
 
     def get_queryset(self):
         usuario = self.request.user

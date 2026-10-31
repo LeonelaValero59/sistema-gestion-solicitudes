@@ -19,6 +19,7 @@ body {
 /* Menú lateral */
 .menu-lateral {
   width: 250px;
+  flex-shrink: 0;
   background: #172b4d;
   color: white;
   padding: 30px 20px;
@@ -170,6 +171,86 @@ body {
   line-height: 1.7;
 }
 
+/* Tablas de solicitudes y tareas */
+.seccion table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  text-align: left;
+}
+
+.seccion thead th {
+  background: #edf2f8;
+  color: #344968;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 16px 18px;
+  white-space: nowrap;
+}
+
+.seccion thead th:first-child {
+  border-radius: 8px 0 0 8px;
+}
+
+.seccion thead th:last-child {
+  border-radius: 0 8px 8px 0;
+}
+
+.seccion tbody tr {
+  background: #f8faff;
+  transition: background 0.2s;
+}
+
+.seccion tbody tr:hover {
+  background: #edf5ff;
+}
+
+.seccion tbody td {
+  padding: 17px 18px;
+  font-size: 14px;
+  line-height: 1.5;
+  border-top: 1px solid #e8edf5;
+  border-bottom: 1px solid #e8edf5;
+  vertical-align: middle;
+}
+
+.seccion tbody td:first-child {
+  border-left: 1px solid #e8edf5;
+  border-radius: 8px 0 0 8px;
+  font-weight: 600;
+  color: #24466f;
+}
+
+.seccion tbody td:last-child {
+  border-right: 1px solid #e8edf5;
+  border-radius: 0 8px 8px 0;
+}
+
+.seccion tbody td:nth-child(2),
+.seccion tbody td:nth-child(3) {
+  color: #52627a;
+}
+
+/* Estados de solicitudes y tareas */
+.seccion tbody td:has(.estado) {
+  white-space: nowrap;
+}
+
+.estado {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: #fff2cc;
+  color: #946200;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Espacio y separación de las secciones */
+.seccion {
+  margin-bottom: 25px;
+}
+
 footer {
   text-align: center;
   color: #929daf;
@@ -178,9 +259,32 @@ footer {
 }
 
 /* Adaptación para pantallas pequeñas */
+@media (max-width: 900px) {
+  .contenido {
+    padding: 25px;
+  }
+
+  .seccion {
+    overflow-x: auto;
+  }
+
+  .seccion table {
+    min-width: 650px;
+  }
+}
+
 @media (max-width: 750px) {
+  .contenedor {
+    flex-direction: column;
+  }
+
   .menu-lateral {
-    width: 190px;
+    width: 100%;
+  }
+
+  .menu-lateral nav {
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 
   .contenido {
