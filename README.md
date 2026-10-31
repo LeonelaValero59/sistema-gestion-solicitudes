@@ -1,10 +1,10 @@
-# Sistema de Gestión de Solicitudes y Tareas
+# Sistema de Gestión de Solicitudes y Tareas – Gestión+
 
 ## 1. Descripción del proyecto
 
-El Sistema de Gestión de Solicitudes y Tareas es una aplicación web diseñada para facilitar el registro, seguimiento y administración de solicitudes dentro de una organización.
+Gestión+ es una aplicación web desarrollada para facilitar el registro, seguimiento y administración de solicitudes y tareas dentro de una organización.
 
-El sistema permitirá que los usuarios registren solicitudes, que los gestores puedan revisarlas y asignar tareas, y que los administradores controlen los usuarios y el funcionamiento general de la plataforma.
+El sistema permite que los usuarios registren solicitudes, que los gestores puedan revisarlas y asignar tareas, y que los administradores controlen los usuarios y el funcionamiento general de la plataforma.
 
 ## 2. Objetivo general
 
@@ -14,7 +14,7 @@ Desarrollar una aplicación web que permita organizar y gestionar solicitudes y 
 
 - **Administrador:** administra usuarios, roles y configuraciones del sistema.
 - **Gestor:** revisa solicitudes, asigna tareas y supervisa su cumplimiento.
-- **Usuario:** registra solicitudes y consulta su estado.
+- **Usuario:** registra solicitudes y consulta sus propias solicitudes y estados.
 - **Visitante:** puede consultar la información pública de la plataforma.
 
 ## 4. Tecnologías utilizadas
@@ -25,38 +25,76 @@ Desarrollar una aplicación web que permita organizar y gestionar solicitudes y 
 - JavaScript
 - Vite
 - HTML y CSS
-- Docker
+- SQLite
+- Docker y Docker Compose
 - Git y GitHub
 
-## 5. Metodología: Modelo V
+## 5. Metodología de desarrollo: Modelo V
 
-El desarrollo del proyecto seguirá el Modelo V, una metodología que organiza el proceso de desarrollo mediante etapas relacionadas entre sí.
+El desarrollo del proyecto se organiza tomando como referencia el Modelo V, una metodología que relaciona las etapas de planificación y diseño con las actividades de verificación y validación.
 
 ### Etapas del Modelo V
 
-1. **Levantamiento de requisitos:** identificación de las necesidades y funcionalidades que tendrá el sistema.
-2. **Análisis del sistema:** estudio de los requisitos y definición de cómo funcionará la aplicación.
-3. **Diseño de software y arquitectura:** planificación de la estructura general y de las tecnologías que se utilizarán.
+1. **Levantamiento de requisitos:** identificación de las necesidades y funcionalidades del sistema.
+2. **Análisis del sistema:** estudio de los requisitos y definición del funcionamiento de la aplicación.
+3. **Diseño de software y arquitectura:** planificación de la estructura general y selección de las tecnologías.
 4. **Diseño de módulos:** organización de las funcionalidades y componentes del sistema.
-5. **Codificación:** implementación de los diseños mediante programación. Esta etapa representa el punto de unión entre las fases de planificación y las fases de comprobación.
+5. **Codificación:** implementación de los diseños mediante programación. Representa el punto de unión entre las fases de planificación y las fases de comprobación.
 
 ### Relación con las pruebas
 
-Después de la codificación, se realizarán pruebas para verificar que cada parte del sistema cumpla con los requisitos establecidos, que los módulos funcionen correctamente y que la aplicación responda a las necesidades de sus usuarios.
+Después de la codificación se realizan pruebas para comprobar que los componentes, módulos y funcionalidades cumplan con los requisitos establecidos.
 
-## 6. Estructura inicial del proyecto
+Entre estas actividades se contemplan las pruebas de integración, las pruebas del sistema y la validación de las necesidades de los usuarios.
+
+## 6. Estructura del proyecto
+
+El proyecto presenta la siguiente organización general:
 
 - `backend/`: contiene el proyecto desarrollado con Django.
-- `frontend/`: contiene la interfaz web desarrollada con Vite.
+- `backend/usuarios/`: contiene la gestión de usuarios, roles y autenticación.
+- `backend/solicitudes/`: contiene los modelos y funcionalidades relacionadas con solicitudes y tareas.
+- `frontend/`: contiene la interfaz web desarrollada con Vite, JavaScript, HTML y CSS.
 - `Dockerfile`: define la construcción del entorno del backend.
 - `docker-compose.yml`: configura la ejecución de los servicios mediante Docker.
 - `.gitignore`: indica los archivos que no deben incluirse en el repositorio.
 - `README.md`: contiene la documentación general del proyecto.
 
-## 7. Estado del proyecto
+## 7. Avances realizados
 
-Actualmente se encuentra preparada la estructura inicial del entorno de desarrollo. Se continuará con la implementación del backend, el frontend, el sistema de autenticación y la gestión de solicitudes y tareas.
+Hasta el momento se han desarrollado y comprobado las siguientes funcionalidades:
 
-## 8. Autoría
+- Configuración inicial del entorno de desarrollo.
+- Creación del proyecto backend con Django.
+- Creación de las aplicaciones de usuarios y solicitudes.
+- Implementación del modelo personalizado de usuarios con diferentes roles.
+- Creación de los modelos de solicitudes y tareas.
+- Configuración del panel de administración de Django.
+- Implementación de autenticación mediante inicio y cierre de sesión.
+- Configuración de rutas y servicios de la API.
+- Integración inicial del frontend con el backend.
+- Registro y consulta de solicitudes desde la interfaz.
+- Comprobación del funcionamiento de una cuenta con rol Usuario.
 
-Proyecto académico desarrollado para la asignatura **Desarrollo de Aplicaciones I**.
+También se ha creado el repositorio del proyecto en GitHub para almacenar y documentar los avances.
+
+## 8. Funcionalidades pendientes
+
+Se continuará trabajando en:
+
+- Completar y probar las funcionalidades correspondientes a los roles Administrador, Gestor y Visitante.
+- Ampliar la gestión de solicitudes y tareas desde la interfaz.
+- Mejorar el diseño visual y la experiencia de usuario.
+- Completar las pruebas de funcionamiento.
+- Elaborar la infografía explicativa del Modelo V.
+- Ampliar la documentación técnica y las instrucciones de ejecución.
+
+## 9. Repositorio del proyecto
+
+El código fuente se encuentra disponible en GitHub:
+
+https://github.com/LeonelaValero59/sistema-gestión-solicitudes
+
+## 10. Autoría
+
+Proyecto académico desarrollado por **Leonela Valero** para la asignatura **Desarrollo de Aplicaciones I**.
